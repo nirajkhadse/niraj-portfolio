@@ -1,0 +1,421 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Cyan theme variables */
+    --cyan-primary: 180 100% 50%;
+    --cyan-secondary: 194 100% 40%;
+    --cyan-accent: 186 100% 94%;
+    --cyan-dark: 180 100% 15%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    /* Light mode cyan adjustments */
+    --cyan-primary: 180 100% 35%;
+    --cyan-secondary: 194 100% 25%;
+    --cyan-accent: 186 100% 97%;
+    --cyan-dark: 180 100% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Remove flicker animations and use smooth transitions */
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  .scroll-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-cyan-500/5 backdrop-blur-sm border border-cyan-400/20 rounded-xl;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20;
+  }
+
+  /* Smooth floating animation */
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Elegant glow effect */
+  .pulse-glow {
+    animation: elegantGlow 3s ease-in-out infinite alternate;
+  }
+
+  /* Smooth slide animations */
+  .slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Bounce effect */
+  .bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Smooth rotating border */
+  .rotating-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rotating-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, #22d3ee, #06b6d4, #0891b2, #22d3ee);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: smoothRotate 3s linear infinite;
+  }
+
+  /* Keyframe animations */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% { 
+      transform: translateY(-15px) rotate(1deg);
+    }
+    66% { 
+      transform: translateY(-8px) rotate(-1deg);
+    }
+  }
+
+  @keyframes elegantGlow {
+    0% { 
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+      transform: scale(1);
+    }
+    100% { 
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes slideInLeft {
+    0% { 
+      transform: translateX(-50px); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+  }
+
+  @keyframes slideInRight {
+    0% { 
+      transform: translateX(50px); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+  }
+
+  @keyframes bounceIn {
+    0% { 
+      transform: scale(0.3); 
+      opacity: 0; 
+    }
+    50% { 
+      transform: scale(1.05); 
+    }
+    70% { 
+      transform: scale(0.9); 
+    }
+    100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+
+  @keyframes smoothRotate {
+    0% { 
+      transform: rotate(0deg); 
+    }
+    100% { 
+      transform: rotate(360deg); 
+    }
+  }
+
+  /* Modern gradient background - no flicker */
+  .morphing-bg {
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #164e63);
+    background-size: 400% 400%;
+    animation: smoothGradientShift 20s ease infinite;
+  }
+
+  @keyframes smoothGradientShift {
+    0% { 
+      background-position: 0% 50%; 
+    }
+    50% { 
+      background-position: 100% 50%; 
+    }
+    100% { 
+      background-position: 0% 50%; 
+    }
+  }
+
+  /* Modern hover effects */
+  .modern-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modern-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(34, 211, 238, 0.15);
+  }
+
+  /* Card tilt effect */
+  .tilt-effect {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .tilt-effect:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(34, 211, 238, 0.2), 
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Smooth typewriter effect */
+  .typewriter {
+    overflow: hidden;
+    border-right: 3px solid #22d3ee;
+    white-space: nowrap;
+    animation: typewriter 3s steps(30) 1s both, blink 1s step-end infinite;
+  }
+
+  @keyframes typewriter {
+    0% { 
+      width: 0; 
+    }
+    100% { 
+      width: 100%; 
+    }
+  }
+
+  @keyframes blink {
+    0%, 50% { 
+      border-color: #22d3ee; 
+    }
+    51%, 100% { 
+      border-color: transparent; 
+    }
+  }
+
+  /* Interactive elements */
+  .interactive-element {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .interactive-element:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  /* Modern card effects */
+  .modern-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .modern-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(34, 211, 238, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Smooth focus effects */
+  .focus-ring {
+    transition: all 0.2s ease;
+  }
+
+  .focus-ring:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #22d3ee;
+    ring-offset: 2px;
+  }
+}
+
+/* Dark mode specific smooth transitions */
+.dark {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Light mode specific smooth transitions */
+.light {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .tilt-effect:hover {
+    transform: scale(1.02);
+  }
+  
+  .modern-hover:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gradient-text {
+    background: none;
+    color: #22d3ee;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .floating-animation,
+  .pulse-glow,
+  .morphing-bg {
+    animation: none;
+  }
+}
