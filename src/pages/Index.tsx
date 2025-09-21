@@ -145,6 +145,13 @@ const Index = () => {
 
   const awards = [
     {
+      title: "Technical Champion Award",
+      year: "2025",
+      description: "Technical leadership in SES Subsystem, leading the team and achieving multi-million cost savings",
+      icon: "🏆",
+      color: "from-yellow-400 to-orange-400"
+    },
+    {
       title: "Star Award",
       year: "2024",
       description: "133 parts complexity reduction",
@@ -171,13 +178,6 @@ const Index = () => {
       description: "Competitive benchmarking excellence",
       icon: "🎯",
       color: "from-emerald-400 to-cyan-400"
-    },
-    {
-      title: "Google PM Cert",
-      year: "2024",
-      description: "Project management expertise",
-      icon: "📋",
-      color: "from-cyan-400 to-blue-400"
     },
     {
       title: "Learning Champion",
@@ -471,6 +471,7 @@ const Index = () => {
                 >
                   technology, data, and AI-driven insights
                 </motion.span>
+                !
               </motion.p>
 
               <motion.p 
@@ -537,7 +538,7 @@ const Index = () => {
                 {[
                   { value: "$15M+", label: "Cost Savings", color: "text-cyan-400" },
                   { value: "5", label: "Projects Led", color: "text-blue-400" },
-                  { value: "100%", label: "Success Rate", color: "text-purple-400" }
+                  { value: "2+", label: "Years of Experience", color: "text-purple-400" }
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -849,114 +850,135 @@ const Index = () => {
       <section id="projects" className={`py-32 relative overflow-hidden ${
         isDarkMode ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' : 'bg-gradient-to-br from-gray-50 via-white to-gray-50'
       }`}>
-        {/* Advanced Background Effects */}
+        {/* Minimalistic Background Effects */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-cyan-400/5 to-blue-500/5 rounded-full blur-2xl"
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-              x: [0, 100, 0],
-              y: [0, -50, 0]
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{
-              duration: 15,
+              duration: 8,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           />
           <motion.div
-            className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-500/10 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/3 w-48 h-48 bg-gradient-to-r from-purple-400/5 to-pink-500/5 rounded-full blur-2xl"
             animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.4, 0.7, 0.4],
-              x: [0, -80, 0],
-              y: [0, 60, 0]
+              scale: [1.1, 1, 1.1],
+              opacity: [0.3, 0.5, 0.3],
             }}
             transition={{
-              duration: 18,
+              duration: 10,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 5
+              delay: 3
             }}
           />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-24">
+            <div className="text-center mb-20">
               <motion.div
-                className="inline-block mb-8"
-                initial={{ opacity: 0, scale: 0.8 }}
+                className="inline-block mb-6"
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 120 }}
               >
-                <Badge className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white border-0 px-8 py-4 text-xl font-bold shadow-lg">
-                  <div className="mr-3">
-                    <Target className="w-5 h-5" />
-                  </div>
+                <Badge className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 px-6 py-3 text-lg font-semibold shadow-lg">
+                  <Target className="w-4 h-4 mr-2" />
                   Strategic Projects
                 </Badge>
               </motion.div>
               
               <motion.h2 
-                className="text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeOut" }}
-              >
-                Impact Through Innovation
-              </motion.h2>
-              
-              <motion.p 
-                className={`text-2xl max-w-4xl mx-auto leading-relaxed ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}
+                className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                Impact Through Data
+              </motion.h2>
+              
+              <motion.p 
+                className={`text-xl max-w-3xl mx-auto leading-relaxed ${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 Driving measurable business impact through strategic engineering initiatives and data-driven decision making
               </motion.p>
             </div>
           </AnimatedSection>
 
-          {/* Enhanced Project Statistics */}
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 max-w-5xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {[
-              { value: "$15M+", label: "Total Cost Savings", color: "from-cyan-400 to-blue-500", icon: DollarSign },
-              { value: "5", label: "Strategic Projects Led", color: "from-blue-400 to-purple-500", icon: Target },
-              { value: "15+", label: "Months of Impact", color: "from-purple-400 to-pink-500", icon: Calendar }
-            ].map((stat, index) => (
+        {/* Animated Project Statistics */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {[
+            { value: "$15M+", label: "Total Cost Savings", color: "from-cyan-400 to-blue-500", icon: DollarSign },
+            { value: "5", label: "Strategic Projects Led", color: "from-blue-400 to-purple-500", icon: Target },
+            { value: "2+", label: "Years of Experience", color: "from-purple-400 to-pink-500", icon: Calendar }
+          ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className={`text-center p-8 rounded-3xl ${
-                  isDarkMode ? 'bg-slate-800/60 backdrop-blur-md border border-cyan-400/20 shadow-2xl' : 'bg-white/90 backdrop-blur-md border border-cyan-200 shadow-2xl'
+                className={`text-center p-6 rounded-2xl ${
+                  isDarkMode ? 'bg-slate-800/50 backdrop-blur-sm border border-cyan-400/20 shadow-xl' : 'bg-white/80 backdrop-blur-sm border border-cyan-200 shadow-xl'
                 }`}
-                whileHover={{ scale: 1.05, y: -10 }}
-                initial={{ opacity: 0, y: 30 }}
+                whileHover={{ 
+                  scale: 1.03, 
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${stat.color} flex items-center justify-center`}>
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+                <motion.div
+                  className={`w-14 h-14 mx-auto mb-3 rounded-xl bg-gradient-to-r ${stat.color} flex items-center justify-center`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.4 }
+                  }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1, type: "spring" }}
+                >
+                  <stat.icon className="w-7 h-7 text-white" />
+                </motion.div>
+                <motion.div 
+                  className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
+                >
                   {stat.value}
-                </div>
-                <div className={`text-lg font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                </motion.div>
+                <motion.div 
+                  className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
+                >
                   {stat.label}
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
@@ -1496,38 +1518,39 @@ const Index = () => {
             <h2 className="text-4xl font-bold text-center mb-16">Awards & Recognition</h2>
           </AnimatedSection>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {awards.map((award, index) => (
               <motion.div
                 key={index}
-                className="h-[200px]"
-                initial={{ opacity: 0, y: 50 }}
+                className="h-[180px]"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="flip-card">
-                  <div className="flip-card-inner">
+                <div className="flip-card h-full">
+                  <div className="flip-card-inner h-full">
                     <div className="flip-card-front">
                       <Card className={`h-full ${
                         isDarkMode 
                           ? 'bg-slate-800/90 border-cyan-400/20' 
                           : 'bg-white border-cyan-200 shadow-md'
                       }`}>
-                        <CardHeader className="text-center">
+                        <CardHeader className="text-center p-4">
                           <motion.div
-                            className="text-4xl mb-4"
-                            whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                            transition={{ duration: 0.5 }}
+                            className="text-3xl mb-3"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
                           >
                             {award.icon}
                           </motion.div>
-                          <CardTitle className={`text-lg ${
+                          <CardTitle className={`text-sm font-bold ${
                             isDarkMode ? 'text-white' : 'text-gray-900'
                           }`}>
                             {award.title}
                           </CardTitle>
-                          <CardDescription className={`font-semibold ${
+                          <CardDescription className={`text-xs font-semibold ${
                             isDarkMode ? 'text-cyan-300' : 'text-cyan-600'
                           }`}>
                             {award.year}
@@ -1542,8 +1565,8 @@ const Index = () => {
                           ? 'bg-slate-800/90 border-cyan-400/20' 
                           : 'bg-white border-cyan-200 shadow-md'
                       }`}>
-                        <CardContent className="flex items-center justify-center h-full p-6">
-                          <p className={`text-sm text-center ${
+                        <CardContent className="flex items-center justify-center h-full p-3">
+                          <p className={`text-xs text-center ${
                             isDarkMode ? 'text-gray-300' : 'text-gray-600'
                           }`}>
                             {award.description}
