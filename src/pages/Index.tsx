@@ -12,7 +12,7 @@ import { ChatBot } from '@/components/ChatBot';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [showSecretModal, setShowSecretModal] = useState(false);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [hoveredAward, setHoveredAward] = useState<number | null>(null);
@@ -37,7 +37,7 @@ const Index = () => {
   };
 
   const downloadResume = () => {
-    window.open('/resume.pdf', '_blank');
+    window.open('https://drive.google.com/drive/u/0/folders/1m5l6_wkEARqRZbLbno5FIbxyxTofuqgY', '_blank');
   };
 
   const openLinkedIn = () => {
@@ -281,12 +281,12 @@ const Index = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${
+    <div className={`min-h-screen transition-all duration-500 cursor-custom ${
       isDarkMode 
         ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white' 
-        : 'bg-gradient-to-br from-white via-gray-50 to-white text-gray-900'
+        : 'light bg-gradient-to-br from-[#f0f9ff] via-[#e0f2fe] to-[#f0f9ff] text-gray-900'
     }`}>
-      <Navigation />
+      <Navigation isDarkMode={isDarkMode} />
       
       {/* Theme Toggle - Bottom Left */}
       <motion.button
@@ -342,70 +342,114 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 hero-title"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <span className="gradient-text">Niraj Khadse</span>
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            >
-              Strategic Business Leader & Technology Innovator
-            </motion.p>
-
-            <motion.p 
-              className={`text-base md:text-lg mb-8 ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-500'
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            >
-              Engineering + Strategy + Intelligence = Impactful Decisions
-            </motion.p>
-
-            <motion.div
-              className="flex flex-wrap justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            >
-              <Button
-                onClick={scrollToContact}
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white"
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            {/* Left side - Text content */}
+            <div className="flex-1 text-left">
+              <motion.h1 
+                className="text-5xl md:text-6xl font-bold mb-6 hero-title"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Get in Touch
-              </Button>
-              <Button
-                variant="outline"
-                onClick={downloadResume}
-                className="border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white"
+                <span className="gradient-text">Niraj Khadse</span>
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </Button>
-            </motion.div>
+                I build business-aligned electronics strategies powered by technology, data, and AI-driven insights
+              </motion.p>
 
+              <motion.p 
+                className={`text-base md:text-lg mb-8 ${
+                  isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              >
+                Engineering + Strategy + Intelligence = Impactful Decisions
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              >
+                <Button
+                  onClick={openLinkedIn}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white"
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  LinkedIn
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={downloadResume}
+                  className="border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </Button>
+              </motion.div>
+            </div>
+
+            {/* Right side - 3D Headshot */}
             <motion.div 
-              className="mt-12 cursor-pointer interactive-element"
-              whileHover={{ scale: 1.2, y: -5 }}
-              onClick={() => scrollToSection('about')}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="flex-1 relative w-full max-w-md aspect-square"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <ChevronDown className={`h-8 w-8 mx-auto ${
-                isDarkMode ? 'text-cyan-400' : 'text-cyan-600'
-              }`} />
+              <div className="relative w-full h-full perspective-1000">
+                <motion.div
+                  className="w-full h-full rounded-full overflow-hidden shadow-2xl shadow-cyan-500/20"
+                  whileHover={{ 
+                    rotateY: 10,
+                    rotateX: 5,
+                    scale: 1.05,
+                    transition: { duration: 0.3 }
+                  }}
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <div className="relative w-full h-full">
+                    <img
+                      src="/niraj-portfolio/profile.jpg"
+                      alt="Niraj Khadse"
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                      style={{ 
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                      }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://via.placeholder.com/400x400?text=Niraj+Khadse';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 mix-blend-overlay" />
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
+
+          <motion.div 
+            className="mt-12 cursor-pointer interactive-element"
+            whileHover={{ scale: 1.2, y: -5 }}
+            onClick={() => scrollToSection('about')}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className={`h-8 w-8 mx-auto ${
+              isDarkMode ? 'text-cyan-400' : 'text-cyan-600'
+            }`} />
+          </motion.div>
         </div>
       </section>
 
@@ -536,73 +580,50 @@ const Index = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="h-[300px]"
+                    className="h-[400px]"
                   >
-                    <div className="flip-card h-full">
-                      <div className="flip-card-inner">
-                        {/* Front of card */}
-                        <div className="flip-card-front">
-                          <Card className={`h-full ${
-                            isDarkMode 
-                              ? 'bg-slate-800/90 border-cyan-400/20' 
-                              : 'bg-white border-cyan-200 shadow-md'
+                    <div className="skill-card h-full">
+                      <Card className={`h-full ${
+                        isDarkMode 
+                          ? 'bg-slate-800/90 border-cyan-400/20' 
+                          : 'bg-white/95 border-cyan-200 shadow-md'
+                      }`}>
+                        <CardHeader className="text-center pb-4">
+                          <motion.div
+                            className="text-4xl mb-4 text-cyan-500 icon"
+                            whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                            transition={{ duration: 0.5 }}
+                          >
+                            {category.icon && <category.icon className="w-12 h-12 mx-auto" />}
+                          </motion.div>
+                          <CardTitle className={`text-xl ${
+                            isDarkMode ? 'text-white' : 'text-gray-900'
                           }`}>
-                            <CardHeader className="text-center">
-                              <motion.div
-                                className="text-4xl mb-4 text-cyan-500"
-                                whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                                transition={{ duration: 0.5 }}
+                            {category.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="card-content">
+                          <ul className="space-y-3">
+                            {category.items.map((item, itemIndex) => (
+                              <motion.li
+                                key={item}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: itemIndex * 0.1 }}
+                                className={`flex items-center gap-2 ${
+                                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                }`}
                               >
-                                {category.icon && <category.icon className="w-12 h-12 mx-auto" />}
-                              </motion.div>
-                              <CardTitle className={`text-xl ${
-                                isDarkMode ? 'text-white' : 'text-gray-900'
-                              }`}>
-                                {category.title}
-                              </CardTitle>
-                              <CardDescription className={`text-sm ${
-                                isDarkMode ? 'text-cyan-300' : 'text-cyan-600'
-                              }`}>
-                                Click to see details
-                              </CardDescription>
-                            </CardHeader>
-                          </Card>
-                        </div>
-
-                        {/* Back of card */}
-                        <div className="flip-card-back">
-                          <Card className={`h-full ${
-                            isDarkMode 
-                              ? 'bg-slate-800/90 border-cyan-400/20' 
-                              : 'bg-white border-cyan-200 shadow-md'
-                          }`}>
-                            <CardContent className="flex flex-col h-full p-6">
-                              <h3 className={`text-lg font-semibold mb-4 ${
-                                isDarkMode ? 'text-white' : 'text-gray-900'
-                              }`}>
-                                {category.title}
-                              </h3>
-                              <ul className="space-y-2 flex-grow">
-                                {category.items.map((item, itemIndex) => (
-                                  <motion.li
-                                    key={item}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.3, delay: itemIndex * 0.1 }}
-                                    className={`flex items-center gap-2 ${
-                                      isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                    }`}
-                                  >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0" />
-                                    <span className="text-sm">{item}</span>
-                                  </motion.li>
-                                ))}
-                              </ul>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </div>
+                                <div className={`w-1.5 h-1.5 rounded-full ${
+                                  isDarkMode ? 'bg-cyan-500' : 'bg-cyan-400'
+                                } flex-shrink-0`} />
+                                <span className="text-sm">{item}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
                     </div>
                   </motion.div>
                 ))}
@@ -845,9 +866,8 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="flip-card h-full">
+                <div className="flip-card">
                   <div className="flip-card-inner">
-                    {/* Front of card */}
                     <div className="flip-card-front">
                       <Card className={`h-full ${
                         isDarkMode 
@@ -876,7 +896,6 @@ const Index = () => {
                       </Card>
                     </div>
 
-                    {/* Back of card */}
                     <div className="flip-card-back">
                       <Card className={`h-full ${
                         isDarkMode 

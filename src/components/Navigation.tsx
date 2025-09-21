@@ -1,10 +1,13 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export const Navigation = () => {
+interface NavigationProps {
+  isDarkMode: boolean;
+}
+
+export const Navigation = ({ isDarkMode }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,9 +21,17 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -37,8 +48,10 @@ export const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-cyan-800/50' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isDarkMode 
+          ? 'bg-slate-900/95 backdrop-blur-md border-b border-cyan-400/20 shadow-lg shadow-slate-900/50' 
+          : 'bg-slate-100/95 backdrop-blur-md border-b border-cyan-200/50 shadow-md shadow-slate-200/50'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -57,11 +70,17 @@ export const Navigation = () => {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-300 hover:text-cyan-400 transition-colors relative group"
+                className={`text-sm font-medium transition-all duration-300 ${
+                  isDarkMode 
+                    ? 'text-gray-300 hover:text-cyan-400' 
+                    : 'text-gray-600 hover:text-cyan-600'
+                } relative group`}
                 whileHover={{ scale: 1.05 }}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isDarkMode ? 'bg-cyan-400' : 'bg-cyan-600'
+                }`}></span>
               </motion.button>
             ))}
           </div>
