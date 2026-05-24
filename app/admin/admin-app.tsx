@@ -60,7 +60,7 @@ interface SiteContent {
 
 interface PendingFileUpload { path: string; base64: string; previewUrl: string }
 
-const REPO = { owner: "nirajkhadse", repo: "niraj-portfolio", branch: "main" }
+const REPO = { owner: "nirajkhadse", repo: "niraj-portfolio", branch: "master" }
 const PROJECTS_PATH = "data/projects.json"
 const SITE_PATH = "data/site.json"
 const TOKEN_KEY = "admin_gh_pat"
