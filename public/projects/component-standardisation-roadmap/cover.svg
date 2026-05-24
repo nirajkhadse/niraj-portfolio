@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1916"/>
+      <stop offset="100%" stop-color="#221F1C"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#C9A86A" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#C9A86A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg3)"/>
+
+  <!-- Connecting "trace" lines like a refined PCB -->
+  <g stroke="#C9A86A" stroke-opacity="0.35" fill="none" stroke-width="1.2">
+    <path d="M 200,200 H 400 V 320 H 600 V 200 H 900"/>
+    <path d="M 200,500 H 350 V 380 H 580 V 600 H 1000"/>
+    <path d="M 1000,200 V 460 H 800 V 600"/>
+    <path d="M 200,750 H 500 V 680 H 800 V 750 H 1000"/>
+  </g>
+  <g stroke="#5C7889" stroke-opacity="0.25" fill="none" stroke-width="1">
+    <path d="M 100,140 H 1100"/>
+    <path d="M 100,820 H 1100"/>
+  </g>
+
+  <!-- Module grid (circles = modules; gold-filled = standardised) -->
+  <g>
+    <!-- Row 1 -->
+    <circle cx="200" cy="200" r="22" fill="url(#hub)"/>
+    <circle cx="200" cy="200" r="10" fill="#C9A86A"/>
+    <circle cx="400" cy="320" r="22" fill="url(#hub)"/>
+    <circle cx="400" cy="320" r="10" fill="#C9A86A"/>
+    <circle cx="600" cy="200" r="22" fill="url(#hub)"/>
+    <circle cx="600" cy="200" r="10" fill="#C9A86A"/>
+    <circle cx="900" cy="200" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="1000" cy="200" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+
+    <!-- Middle area -->
+    <circle cx="200" cy="500" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="350" cy="380" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="580" cy="380" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="580" cy="600" r="22" fill="url(#hub)"/>
+    <circle cx="580" cy="600" r="10" fill="#C9A86A"/>
+    <circle cx="800" cy="460" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="800" cy="600" r="22" fill="url(#hub)"/>
+    <circle cx="800" cy="600" r="10" fill="#C9A86A"/>
+    <circle cx="1000" cy="460" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="1000" cy="600" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+
+    <!-- Row 3 -->
+    <circle cx="200" cy="750" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="500" cy="750" r="22" fill="url(#hub)"/>
+    <circle cx="500" cy="750" r="10" fill="#C9A86A"/>
+    <circle cx="500" cy="680" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="800" cy="680" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="800" cy="750" r="14" fill="none" stroke="#5C7889" stroke-width="1.5"/>
+    <circle cx="1000" cy="750" r="22" fill="url(#hub)"/>
+    <circle cx="1000" cy="750" r="10" fill="#C9A86A"/>
+  </g>
+
+  <!-- Corner brackets for a "spec sheet" feel -->
+  <g fill="none" stroke="#C9A86A" stroke-opacity="0.6" stroke-width="2">
+    <path d="M 60,60 H 110 M 60,60 V 110"/>
+    <path d="M 1140,60 H 1090 M 1140,60 V 110"/>
+    <path d="M 60,840 H 110 M 60,840 V 790"/>
+    <path d="M 1140,840 H 1090 M 1140,840 V 790"/>
+  </g>
+</svg>

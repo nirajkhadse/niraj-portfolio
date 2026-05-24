@@ -2,22 +2,23 @@
 
 import { useRef, useMemo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { Float, Environment } from "@react-three/drei"
+import { Float, Environment, MeshDistortMaterial } from "@react-three/drei"
 import * as THREE from "three"
 
-// Subtle dot field — like particles but tighter and cooler than the original
-function Particles({ count = 400 }) {
+function Particles({ count = 500 }) {
   const mesh = useRef<THREE.Points>(null)
   const { viewport } = useThree()
 
-  const positions = useMemo(() => {
-    const p = new Float32Array(count * 3)
+  const [positions, sizes] = useMemo(() => {
+    const positions = new Float32Array(count * 3)
+    const sizes = new Float32Array(count)
     for (let i = 0; i < count; i++) {
-      p[i * 3] = (Math.random() - 0.5) * viewport.width * 2
-      p[i * 3 + 1] = (Math.random() - 0.5) * viewport.height * 2
-      p[i * 3 + 2] = (Math.random() - 0.5) * 10
+      positions[i * 3] = (Math.random() - 0.5) * viewport.width * 2
+      positions[i * 3 + 1] = (Math.random() - 0.5) * viewport.height * 2
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10
+      sizes[i] = Math.random() * 2 + 0.5
     }
-    return p
+    return [positions, sizes]
   }, [count, viewport])
 
   useFrame((state) => {
@@ -30,65 +31,44 @@ function Particles({ count = 400 }) {
     <points ref={mesh}>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+        <bufferAttribute attach="attributes-size" count={count} array={sizes} itemSize={1} />
       </bufferGeometry>
-      <pointsMaterial size={0.015} color="#B0723C" transparent opacity={0.7} sizeAttenuation />
+      <pointsMaterial size={0.02} color="#C9A86A" transparent opacity={0.6} sizeAttenuation />
     </points>
   )
 }
 
-// A circuit "trace" — a polyline made of right-angle segments, like PCB routing.
-function Trace({
-  points,
-  color = "#B0723C",
-  opacity = 0.45,
-  speed = 0.5,
-  depth = -3,
-}: {
-  points: [number, number][]
+function FloatingPanel({ position, rotation, scale, color }: {
+  position: [number, number, number]
+  rotation: [number, number, number]
+  scale: number
   color?: string
-  opacity?: number
-  speed?: number
-  depth?: number
 }) {
-  const ref = useRef<THREE.Line>(null)
-
-  const geometry = useMemo(() => {
-    const g = new THREE.BufferGeometry()
-    const pts: number[] = []
-    for (const [x, y] of points) pts.push(x, y, depth)
-    g.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3))
-    return g
-  }, [points, depth])
+  const mesh = useRef<THREE.Mesh>(null)
+  const { pointer } = useThree()
 
   useFrame((state) => {
-    if (!ref.current) return
-    // Gentle breathing opacity, slightly desynced per trace via the `speed` prop
-    const m = ref.current.material as THREE.LineBasicMaterial
-    m.opacity = opacity * (0.65 + 0.35 * Math.sin(state.clock.elapsedTime * speed))
+    if (!mesh.current) return
+    mesh.current.rotation.x = THREE.MathUtils.lerp(
+      mesh.current.rotation.x, rotation[0] + pointer.y * 0.1, 0.05,
+    )
+    mesh.current.rotation.y = THREE.MathUtils.lerp(
+      mesh.current.rotation.y, rotation[1] + pointer.x * 0.1, 0.05,
+    )
+    mesh.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.5) * 0.1
   })
 
   return (
-    <primitive
-      object={
-        new THREE.Line(
-          geometry,
-          new THREE.LineBasicMaterial({ color, transparent: true, opacity, linewidth: 1 }),
-        )
-      }
-      ref={ref}
-    />
-  )
-}
-
-// A small "via" — a glowing copper dot at a PCB junction.
-function Via({ position, size = 0.04, color = "#B0723C" }: {
-  position: [number, number, number]; size?: number; color?: string
-}) {
-  return (
-    <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
-      <mesh position={position}>
-        <circleGeometry args={[size, 16]} />
-        <meshBasicMaterial color={color} transparent opacity={0.85} />
+    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+      <mesh ref={mesh} position={position} scale={scale}>
+        <planeGeometry args={[1, 1.4]} />
+        <MeshDistortMaterial
+          color={color || "#2A2622"}
+          transparent
+          opacity={0.8}
+          distort={0.1}
+          speed={2}
+        />
       </mesh>
     </Float>
   )
@@ -101,61 +81,25 @@ function Scene() {
   useFrame(() => {
     if (!groupRef.current) return
     groupRef.current.rotation.y = THREE.MathUtils.lerp(
-      groupRef.current.rotation.y, pointer.x * 0.12, 0.05,
+      groupRef.current.rotation.y, pointer.x * 0.15, 0.05,
     )
     groupRef.current.rotation.x = THREE.MathUtils.lerp(
-      groupRef.current.rotation.x, pointer.y * 0.08, 0.05,
+      groupRef.current.rotation.x, pointer.y * 0.1, 0.05,
     )
   })
 
-  // Several stylised PCB traces routed across the scene.
-  // Each trace is a polyline of [x, y] coords; right-angles read as circuit routing.
-  const traces: Array<Parameters<typeof Trace>[0]> = [
-    {
-      points: [[-4, 1.5], [-2.2, 1.5], [-2.2, 0.5], [0.6, 0.5], [0.6, -0.4], [3.5, -0.4]],
-      color: "#B0723C", opacity: 0.5, speed: 0.4, depth: -3,
-    },
-    {
-      points: [[-4, -1.2], [-1.4, -1.2], [-1.4, -0.2], [1.8, -0.2], [1.8, 1.1], [4, 1.1]],
-      color: "#5B7965", opacity: 0.4, speed: 0.55, depth: -3.5,
-    },
-    {
-      points: [[-3.5, 2.2], [-0.8, 2.2], [-0.8, 1.3], [2.4, 1.3], [2.4, 2], [4, 2]],
-      color: "#B0723C", opacity: 0.35, speed: 0.6, depth: -4,
-    },
-    {
-      points: [[-4, -2], [-2.6, -2], [-2.6, -1.2], [0, -1.2], [0, -2.2], [3.8, -2.2]],
-      color: "#5B7965", opacity: 0.3, speed: 0.45, depth: -3.8,
-    },
-    {
-      points: [[-3, 0.8], [-3, -0.5], [-0.4, -0.5], [-0.4, 0.4], [2.6, 0.4], [2.6, -1], [4, -1]],
-      color: "#B0723C", opacity: 0.35, speed: 0.5, depth: -2.6,
-    },
-  ]
-
-  // Vias at trace junctions for a richer circuit look
-  const vias: Array<{ position: [number, number, number]; color?: string }> = [
-    { position: [-2.2, 0.5, -3] },
-    { position: [0.6, -0.4, -3] },
-    { position: [-1.4, -0.2, -3.5], color: "#5B7965" },
-    { position: [1.8, 1.1, -3.5], color: "#5B7965" },
-    { position: [-0.8, 1.3, -4] },
-    { position: [2.4, 2, -4] },
-    { position: [-2.6, -1.2, -3.8], color: "#5B7965" },
-    { position: [0, -1.2, -3.8], color: "#5B7965" },
-    { position: [-0.4, 0.4, -2.6] },
-    { position: [2.6, -1, -2.6] },
-  ]
-
   return (
     <group ref={groupRef}>
-      <Particles count={250} />
-      {traces.map((t, i) => <Trace key={i} {...t} />)}
-      {vias.map((v, i) => <Via key={i} {...v} />)}
+      <Particles count={300} />
+      <FloatingPanel position={[-2, 0.5, -2]} rotation={[0.1, 0.2, 0]} scale={1.2} />
+      <FloatingPanel position={[2, -0.3, -3]} rotation={[-0.1, -0.2, 0]} scale={0.9} color="#2A2A2E" />
+      <FloatingPanel position={[0, 0, -4]} rotation={[0, 0, 0]} scale={1.5} />
+      <FloatingPanel position={[-1.5, -0.8, -2.5]} rotation={[0.05, 0.1, 0]} scale={0.7} color="#2A2A2E" />
+      <FloatingPanel position={[1.8, 0.8, -3.5]} rotation={[-0.05, -0.1, 0]} scale={0.8} />
 
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.5} color="#B0723C" />
-      <pointLight position={[-5, -5, 5]} intensity={0.25} color="#5B7965" />
+      <pointLight position={[5, 5, 5]} intensity={0.5} color="#C9A86A" />
+      <pointLight position={[-5, -5, 5]} intensity={0.3} color="#5C7889" />
     </group>
   )
 }

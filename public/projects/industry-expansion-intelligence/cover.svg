@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#C9A86A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#C9A86A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#181818"/>
+      <stop offset="100%" stop-color="#221F1C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg2)"/>
+
+  <!-- Latitude/longitude lines suggesting world map -->
+  <g stroke="#C9A86A" stroke-opacity="0.07" fill="none">
+    <ellipse cx="600" cy="450" rx="500" ry="380"/>
+    <ellipse cx="600" cy="450" rx="400" ry="320"/>
+    <ellipse cx="600" cy="450" rx="300" ry="240"/>
+    <ellipse cx="600" cy="450" rx="500" ry="380" transform="rotate(60 600 450)"/>
+    <ellipse cx="600" cy="450" rx="500" ry="380" transform="rotate(-60 600 450)"/>
+    <line x1="100" y1="450" x2="1100" y2="450"/>
+    <line x1="600" y1="70" x2="600" y2="830"/>
+  </g>
+
+  <!-- Connection arcs between key nodes -->
+  <g stroke="#C9A86A" fill="none" stroke-width="1.5">
+    <path d="M 270,360 Q 450,200 660,330" stroke-opacity="0.7"/>
+    <path d="M 660,330 Q 800,420 940,330" stroke-opacity="0.6"/>
+    <path d="M 270,360 Q 400,580 540,560" stroke-opacity="0.5"/>
+    <path d="M 940,330 Q 900,580 760,640" stroke-opacity="0.5"/>
+    <path d="M 540,560 Q 650,620 760,640" stroke-opacity="0.45"/>
+  </g>
+  <g stroke="#5C7889" fill="none" stroke-width="1">
+    <path d="M 380,260 Q 600,150 820,260" stroke-opacity="0.5"/>
+    <path d="M 380,720 Q 600,820 820,720" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Node glows and dots -->
+  <g>
+    <circle cx="270" cy="360" r="60" fill="url(#glow)"/>
+    <circle cx="660" cy="330" r="80" fill="url(#glow)"/>
+    <circle cx="940" cy="330" r="60" fill="url(#glow)"/>
+    <circle cx="540" cy="560" r="55" fill="url(#glow)"/>
+    <circle cx="760" cy="640" r="65" fill="url(#glow)"/>
+  </g>
+  <g fill="#C9A86A">
+    <circle cx="270" cy="360" r="6"/>
+    <circle cx="660" cy="330" r="8"/>
+    <circle cx="940" cy="330" r="6"/>
+    <circle cx="540" cy="560" r="5"/>
+    <circle cx="760" cy="640" r="7"/>
+  </g>
+  <g fill="#5C7889">
+    <circle cx="380" cy="260" r="4"/>
+    <circle cx="820" cy="260" r="4"/>
+    <circle cx="380" cy="720" r="4"/>
+    <circle cx="820" cy="720" r="4"/>
+  </g>
+
+  <!-- Subtle frame -->
+  <rect x="60" y="60" width="1080" height="780" fill="none" stroke="#C9A86A" stroke-opacity="0.15" stroke-width="1"/>
+</svg>

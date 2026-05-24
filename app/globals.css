@@ -4,37 +4,37 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Strategy x Engineering Palette (copper + PCB-green over charcoal) */
+  /* Strategy & Cost Architecture Palette (champagne gold + slate teal over charcoal) */
   --background: #1E1E1E;
   --foreground: #F5F1EA;
   --card: #221F1C;
   --card-foreground: #F5F1EA;
   --popover: #221F1C;
   --popover-foreground: #F5F1EA;
-  --primary: #B0723C;
+  --primary: #C9A86A;
   --primary-foreground: #1E1E1E;
   --secondary: #4A463F;
   --secondary-foreground: #F5F1EA;
   --muted: #322E2A;
   --muted-foreground: #D0C9B7;
-  --accent: #B0723C;
+  --accent: #C9A86A;
   --accent-foreground: #1E1E1E;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: #4A463F;
   --input: #322E2A;
-  --ring: #B0723C;
+  --ring: #C9A86A;
   --radius: 0.5rem;
 
   /* Token names kept identical so existing component classes (text-bronze etc.)
      continue to work — the colour values shifted to a copper + PCB palette. */
   --cream: #F5F1EA;
-  --warm-beige: #D0C9B7;
-  --bronze: #B0723C;          /* warm copper */
+  --warm-beige: #D8CFB6;
+  --bronze: #C9A86A;          /* champagne gold */
   --stone: #4A463F;            /* cooler neutral */
   --charcoal: #1E1E1E;
   --dark-brown: #221F1C;       /* very slightly cooler than original */
-  --pcb-green: #5B7965;        /* secondary accent for circuit/awards motifs */
+  --pcb-green: #5C7889;        /* secondary accent for circuit/awards motifs */
 }
 
 @theme inline {
