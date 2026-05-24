@@ -6,10 +6,16 @@
     "location": "Global",
     "year": "2025",
     "area": "Cross-category",
-    "description": "An annual atlas of commodity cost benchmarks and category-leader spend patterns — translating supplier and commodity flux into executive-ready architecture moves.",
+    "description": "An annual atlas of commodity cost benchmarks and category-leader spend patterns â translating supplier and commodity flux into executive-ready architecture moves.",
     "concept": "A living reference that informs sourcing strategy, supplier negotiations, and roadmap-level investment calls. Each cycle refreshes the cost lens across the appliances category.",
-    "style": ["Cost Intelligence", "Sourcing", "Benchmarking"],
-    "images": ["/projects/cost-architecture-atlas/cover.svg"],
+    "style": [
+      "Cost Intelligence",
+      "Sourcing",
+      "Benchmarking"
+    ],
+    "images": [
+      "/projects/cost-architecture-atlas/cover.svg"
+    ],
     "featured": true
   },
   {
@@ -19,10 +25,16 @@
     "location": "Global",
     "year": "2025",
     "area": "Manufacturing footprint",
-    "description": "Evidence-based briefings on category leaders' manufacturing footprint moves — capacity expansions, capital intensity, and regional positioning shifts.",
+    "description": "Evidence-based briefings on category leaders' manufacturing footprint moves â capacity expansions, capital intensity, and regional positioning shifts.",
     "concept": "Synthesises analyst reports, plant filings, and capital announcements into one-pagers that shape the strategic response and prepare leadership for sourcing and pricing implications.",
-    "style": ["Briefings", "Macro", "Footprint"],
-    "images": ["/projects/industry-expansion-intelligence/cover.svg"],
+    "style": [
+      "Briefings",
+      "Macro",
+      "Footprint"
+    ],
+    "images": [
+      "/projects/industry-expansion-intelligence/cover.svg"
+    ],
     "featured": true
   },
   {
@@ -32,36 +44,54 @@
     "location": "Multi-region",
     "year": "2025",
     "area": "Electronics & Harness",
-    "description": "Module-level study of microcontrollers and wire-harness configurations across product categories — surfaces opportunities to standardise without compromising specification.",
+    "description": "Module-level study of microcontrollers and wire-harness configurations across product categories â surfaces opportunities to standardise without compromising specification.",
     "concept": "Recommends architecture consolidations that unlock scale economics and supply-chain resilience while preserving feature parity across business units.",
-    "style": ["Standardisation", "Electronics", "Architecture"],
-    "images": ["/projects/component-standardisation-roadmap/cover.svg"],
+    "style": [
+      "Standardisation",
+      "Electronics",
+      "Architecture"
+    ],
+    "images": [
+      "/projects/component-standardisation-roadmap/cover.svg"
+    ],
     "featured": true
   },
   {
     "id": "regional-teardown-program-lar",
-    "title": "Cross-Region Teardown · LAR",
+    "title": "Cross-Region Teardown Â· LAR",
     "category": "Architecture Analysis",
     "location": "Latin America",
     "year": "2025",
     "area": "Refrigeration",
-    "description": "Comparative refrigeration teardown program covering the Latin America region — best-of-best design, feature, and cost analysis at the subsystem level.",
+    "description": "Comparative refrigeration teardown program covering the Latin America region â best-of-best design, feature, and cost analysis at the subsystem level.",
     "concept": "Identifies architecture moves with measurable cost impact while ensuring feature parity with regional category leaders. Outputs feed product line decisions and supplier alignment.",
-    "style": ["Teardown", "Refrigeration", "Best-of-Best"],
-    "images": ["/projects/regional-teardown-program-lar/cover.svg"],
+    "style": [
+      "Teardown",
+      "Refrigeration",
+      "Best-of-Best"
+    ],
+    "images": [
+      "/projects/regional-teardown-program-lar/cover.svg"
+    ],
     "featured": true
   },
   {
     "id": "strategic-architecture-analysis-asia",
-    "title": "Strategic Architecture Analysis · Asia",
+    "title": "Strategic Architecture Analysis Â· Asia",
     "category": "Architecture Analysis",
     "location": "Asia",
     "year": "2024",
     "area": "Laundry",
-    "description": "Washer-category architecture and subsystem analysis for the Asia region — electronics, electricals, marketing claims, and feature-adjusted designed cost.",
+    "description": "Washer-category architecture and subsystem analysis for the Asia region â electronics, electricals, marketing claims, and feature-adjusted designed cost.",
     "concept": "Feeds product line strategy with the architectural and cost levers needed to compete in the regional segment, while highlighting feature investments that translate into perceived value.",
-    "style": ["Laundry", "Architecture", "Feature-Cost"],
-    "images": ["/projects/strategic-architecture-analysis-asia/cover.svg"],
+    "style": [
+      "Laundry",
+      "Architecture",
+      "Feature-Cost"
+    ],
+    "images": [
+      "/projects/strategic-architecture-analysis-asia/cover.svg"
+    ],
     "featured": true
   }
 ]
