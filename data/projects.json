@@ -1,0 +1,54 @@
+[
+  {
+    "id": "global-sourcing-optimization",
+    "title": "Global Sourcing Optimization",
+    "category": "Strategic Sourcing",
+    "location": "NAR · LAR · India",
+    "year": "2024",
+    "area": "Cross-category",
+    "description": "Led supplier and microcontroller standardisation across multiple business units, building the cross-category strategic roadmap that underpinned the sourcing decision.",
+    "concept": "Unlocked $9.5M+ in annual savings through targeted component standardisation, optimised sourcing strategies, and enhanced supply chain resilience — outcomes adopted in global design.",
+    "style": ["Sourcing", "Standardisation", "Cost Strategy"],
+    "images": [],
+    "featured": true
+  },
+  {
+    "id": "cooking-hmi-optimization",
+    "title": "Cooking HMI Optimisation",
+    "category": "Cost Architecture",
+    "location": "North America",
+    "year": "2025",
+    "area": "Cooking Products",
+    "description": "Optimised the Human-Machine Interface architecture across the Cooking Products line — refining feature sets, removing over-engineered elements, and adding low-cost, high-impact differentiators.",
+    "concept": "Approximately $25 per-product saving across the cooking portfolio; recognised with the Constellation of the Quarter award.",
+    "style": ["HMI", "Feature Strategy", "Cost"],
+    "images": [],
+    "featured": true
+  },
+  {
+    "id": "refrigeration-launch",
+    "title": "Refrigeration Launch Acceleration",
+    "category": "Time-to-Market",
+    "location": "Global",
+    "year": "2024",
+    "area": "Refrigeration",
+    "description": "Partnered with category leadership to compress the refrigeration launch timeline while reshaping the cost and sourcing posture.",
+    "concept": "Delivered $1.5M in savings while accelerating market launch — aligning sourcing, design, and portfolio strategy with the launch window.",
+    "style": ["Launch", "Cost", "Sourcing"],
+    "images": [],
+    "featured": true
+  },
+  {
+    "id": "executive-cost-advisory",
+    "title": "Executive Cost Transformation",
+    "category": "Strategy Advisory",
+    "location": "Global",
+    "year": "2024",
+    "area": "Multi-category",
+    "description": "Developed sourcing and architecture strategies for EVPs and C-suite — translating competitive intelligence into investable decisions.",
+    "concept": "Multi-million-dollar savings via competitive market analysis, supplier optimisation, and operational efficiency improvements — $24.2M+ identified in total.",
+    "style": ["Advisory", "Transformation", "Sourcing"],
+    "images": [],
+    "featured": true
+  }
+]

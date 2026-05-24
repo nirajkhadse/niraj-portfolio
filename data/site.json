@@ -1,0 +1,117 @@
+{
+  "loading": {
+    "monogram": "NK",
+    "subtitle": "Strategy × Engineering"
+  },
+  "hero": {
+    "subtitle": "Senior Engineer · Strategy & Cost Architecture",
+    "titleLine1": "Engineering",
+    "titleLine2Prefix": "Strategic ",
+    "titleLine2Highlight": "Impact",
+    "description": "Competitive Intelligence | Cost Strategy | Electronics Architecture",
+    "ctaPrimaryLabel": "View Projects",
+    "ctaPrimaryHref": "#projects",
+    "ctaSecondaryLabel": "Contact",
+    "ctaSecondaryHref": "#contact",
+    "sideTextLeft": "Pune, India",
+    "sideTextRight": "Whirlpool · 2023"
+  },
+  "navigation": {
+    "brand": "Niraj Khadse",
+    "items": [
+      { "name": "Home", "href": "#hero" },
+      { "name": "Projects", "href": "#projects" },
+      { "name": "About", "href": "#about" },
+      { "name": "Awards", "href": "#awards" },
+      { "name": "Contact", "href": "#contact" }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "heading": "The Strategist",
+    "name": "Niraj Khadse",
+    "bio": [
+      "Strategy and transformation professional with a proven record of delivering $24.2M+ in business impact through competitive intelligence, sourcing optimization, and strategic product development.",
+      "Experienced in advising senior executives, optimizing product portfolios, and driving cost and operational efficiencies in global markets. Skilled in leading cross-functional teams, facilitating executive workshops, and aligning strategies with market realities."
+    ],
+    "philosophyBadgeTitle": "Strategy × Engineering",
+    "philosophyBadgeSubtitle": "Cost & Architecture",
+    "expertiseLabel": "Tools & Frameworks",
+    "skills": [
+      "aPriori",
+      "Google Apps Script",
+      "Looker Studio",
+      "Advanced Excel",
+      "Google Sheets",
+      "PMP (Google)",
+      "McKinsey Forward"
+    ],
+    "stats": [
+      { "value": "$24.2M+", "label": "Business Impact" },
+      { "value": "$9.5M+", "label": "Sourcing Savings" },
+      { "value": "60%", "label": "Faster Turnaround" }
+    ],
+    "philosophyLabel": "Philosophy",
+    "philosophyQuote": "Aligning competitive intelligence and engineering insight with market realities — turning strategy into measurable, multi-million-dollar business impact.",
+    "photo": "",
+    "monogram": "NK"
+  },
+  "awards": {
+    "label": "Recognition",
+    "heading": "Awards & Honors",
+    "description": "Recognised for cost transformation, architecture decisions, and strategic influence on global product portfolios.",
+    "items": [
+      {
+        "year": "2025",
+        "title": "Constellation of the Quarter",
+        "description": "Recognised for optimising the HMIs across the Cooking Products business — ~$25 per-product saving."
+      },
+      {
+        "year": "2024",
+        "title": "Stellar of the Year",
+        "description": "Core contributor to an electronics project — drove architectural decisions and aligned cross-functional teams."
+      },
+      {
+        "year": "2024",
+        "title": "Star Award · 3×",
+        "description": "Delivered cost savings via component standardisation — reduced complexity by 133 parts in a critical electronics project."
+      },
+      {
+        "year": "Ongoing",
+        "title": "Constellation Award · 2×",
+        "description": "Influenced key product decisions, including a $9.5M+ sourcing strategy adopted in global design."
+      }
+    ]
+  },
+  "projectsHeader": {
+    "label": "Case Studies",
+    "heading": "Strategic Initiatives",
+    "description": "A selection of strategic and cost-architecture initiatives delivering measurable business impact across global product portfolios."
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's Build Strategy",
+    "description": "Open to cost-architecture, strategy advisory, and competitive intelligence conversations. Reach out for engagements or collaborations.",
+    "emailLabel": "Email",
+    "email": "nirajkhadse03518@gmail.com",
+    "phoneLabel": "Phone",
+    "phone": "+91 8779617676",
+    "locationLabel": "Location",
+    "locationLine1": "Pune, Maharashtra",
+    "locationLine2": "India",
+    "connectLabel": "Connect",
+    "socials": [
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/nirajkhadse/" },
+      { "label": "Email", "href": "mailto:nirajkhadse03518@gmail.com" }
+    ],
+    "formNameLabel": "Your Name",
+    "formEmailLabel": "Your Email",
+    "formMessageLabel": "Tell me about your project",
+    "submitLabel": "Send Message"
+  },
+  "footer": {
+    "brand": "Niraj Khadse",
+    "rightsText": "All Rights Reserved",
+    "backToTopLabel": "Back to Top"
+  }
+}
