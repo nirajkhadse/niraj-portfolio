@@ -4,37 +4,37 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Strategy & Cost Architecture Palette (champagne gold + slate teal over charcoal) */
-  --background: #1E1E1E;
-  --foreground: #F5F1EA;
-  --card: #221F1C;
-  --card-foreground: #F5F1EA;
-  --popover: #221F1C;
-  --popover-foreground: #F5F1EA;
-  --primary: #C9A86A;
-  --primary-foreground: #1E1E1E;
-  --secondary: #4A463F;
-  --secondary-foreground: #F5F1EA;
-  --muted: #322E2A;
-  --muted-foreground: #D0C9B7;
-  --accent: #C9A86A;
-  --accent-foreground: #1E1E1E;
+  /* Strategy palette — cool petrol blue + pewter silver on night charcoal.
+     No warm tones. Token names retained so existing Tailwind classes
+     (text-bronze, bg-dark-brown, etc.) continue to work. */
+  --background: #161C23;
+  --foreground: #E8EAED;
+  --card: #1B222B;
+  --card-foreground: #E8EAED;
+  --popover: #1B222B;
+  --popover-foreground: #E8EAED;
+  --primary: #5494A8;
+  --primary-foreground: #161C23;
+  --secondary: #3A4654;
+  --secondary-foreground: #E8EAED;
+  --muted: #232B36;
+  --muted-foreground: #B5BFC8;
+  --accent: #5494A8;
+  --accent-foreground: #161C23;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #4A463F;
-  --input: #322E2A;
-  --ring: #C9A86A;
+  --border: #3A4654;
+  --input: #232B36;
+  --ring: #5494A8;
   --radius: 0.5rem;
 
-  /* Token names kept identical so existing component classes (text-bronze etc.)
-     continue to work — the colour values shifted to a copper + PCB palette. */
-  --cream: #F5F1EA;
-  --warm-beige: #D8CFB6;
-  --bronze: #C9A86A;          /* champagne gold */
-  --stone: #4A463F;            /* cooler neutral */
-  --charcoal: #1E1E1E;
-  --dark-brown: #221F1C;       /* very slightly cooler than original */
-  --pcb-green: #5C7889;        /* secondary accent for circuit/awards motifs */
+  --cream: #E8EAED;            /* cool cream (was warm) */
+  --warm-beige: #B5BFC8;       /* cool pearl (was warm beige) */
+  --bronze: #5494A8;           /* PETROL BLUE — primary accent (was warm gold/bronze) */
+  --stone: #3A4654;            /* cool slate gray (was warm stone) */
+  --charcoal: #161C23;         /* night charcoal with subtle blue tint */
+  --dark-brown: #1B222B;       /* cool dark panel (was warm dark brown) */
+  --pcb-green: #9BA6B0;        /* pewter silver — secondary accent */
 }
 
 @theme inline {

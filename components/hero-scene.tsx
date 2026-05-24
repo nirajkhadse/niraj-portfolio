@@ -33,7 +33,7 @@ function Particles({ count = 500 }) {
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
         <bufferAttribute attach="attributes-size" count={count} array={sizes} itemSize={1} />
       </bufferGeometry>
-      <pointsMaterial size={0.02} color="#C9A86A" transparent opacity={0.6} sizeAttenuation />
+      <pointsMaterial size={0.02} color="#5494A8" transparent opacity={0.6} sizeAttenuation />
     </points>
   )
 }
@@ -63,7 +63,7 @@ function FloatingPanel({ position, rotation, scale, color }: {
       <mesh ref={mesh} position={position} scale={scale}>
         <planeGeometry args={[1, 1.4]} />
         <MeshDistortMaterial
-          color={color || "#2A2622"}
+          color={color || "#1B222B"}
           transparent
           opacity={0.8}
           distort={0.1}
@@ -92,14 +92,14 @@ function Scene() {
     <group ref={groupRef}>
       <Particles count={300} />
       <FloatingPanel position={[-2, 0.5, -2]} rotation={[0.1, 0.2, 0]} scale={1.2} />
-      <FloatingPanel position={[2, -0.3, -3]} rotation={[-0.1, -0.2, 0]} scale={0.9} color="#2A2A2E" />
+      <FloatingPanel position={[2, -0.3, -3]} rotation={[-0.1, -0.2, 0]} scale={0.9} color="#222933" />
       <FloatingPanel position={[0, 0, -4]} rotation={[0, 0, 0]} scale={1.5} />
-      <FloatingPanel position={[-1.5, -0.8, -2.5]} rotation={[0.05, 0.1, 0]} scale={0.7} color="#2A2A2E" />
+      <FloatingPanel position={[-1.5, -0.8, -2.5]} rotation={[0.05, 0.1, 0]} scale={0.7} color="#222933" />
       <FloatingPanel position={[1.8, 0.8, -3.5]} rotation={[-0.05, -0.1, 0]} scale={0.8} />
 
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.5} color="#C9A86A" />
-      <pointLight position={[-5, -5, 5]} intensity={0.3} color="#5C7889" />
+      <pointLight position={[5, 5, 5]} intensity={0.5} color="#5494A8" />
+      <pointLight position={[-5, -5, 5]} intensity={0.3} color="#9BA6B0" />
     </group>
   )
 }
